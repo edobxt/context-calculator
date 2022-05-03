@@ -1,0 +1,14 @@
+.calcul-screen {
+    width: 500px;
+    height: 100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.calcul-text {
+    padding-right: 25px;
+}
