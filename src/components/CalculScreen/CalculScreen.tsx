@@ -5,7 +5,7 @@ import {useCalculatorContext} from "../../contexts/CalculatorContext";
 interface Props {}
 
 export const CalculScreen: React.FC<Props> = (props) => {
-	const {readableCalcul} = useCalculatorContext()
+	const {readableCalcul, calcul} = useCalculatorContext()
 	return (
 		<div className={"calcul-screen"}>
 			<div className={"calcul-text"}>

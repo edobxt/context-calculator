@@ -4,6 +4,7 @@ import {ButtonItem} from "../../components/ButtonItem/ButtonItem";
 import {ResetButton} from "../../components/ResetButton/ResetButton"
 import {MemoryButton} from "../../components/MemoryButton/MemoryButton";
 import {EqualButton} from "../../components/EqualButton/EqualButton";
+import {ScientificButton} from "../../components/ScientificButton/ScientificButton";
 
 interface Props {}
 
@@ -14,6 +15,10 @@ export const ButtonLayout: React.FC<Props> = (props) => {
 			<ButtonItem element={")"} />
 			<MemoryButton />
 			<ResetButton />
+			<ScientificButton element={"cos"} />
+			<ScientificButton element={"sin"} />
+			<ScientificButton element={"tan"} />
+			<ScientificButton element={"√"} />
 			<ButtonItem element={"7"} />
 			<ButtonItem element={"8"} />
 			<ButtonItem element={"9"} />
