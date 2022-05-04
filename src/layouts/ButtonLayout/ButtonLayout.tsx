@@ -1,7 +1,9 @@
 import * as React from 'react';
 import "./ButtonLayout.css";
-import {Cell, Grid} from "baseui/layout-grid";
 import {ButtonItem} from "../../components/ButtonItem/ButtonItem";
+import {ResetButton} from "../../components/ResetButton/ResetButton"
+import {MemoryButton} from "../../components/MemoryButton/MemoryButton";
+import {EqualButton} from "../../components/EqualButton/EqualButton";
 
 interface Props {}
 
@@ -10,8 +12,8 @@ export const ButtonLayout: React.FC<Props> = (props) => {
 		<div className={"button-layout"}>
 			<ButtonItem element={"("} />
 			<ButtonItem element={")"} />
-			<ButtonItem element={"M"} />
-			<ButtonItem element={"AC"} />
+			<MemoryButton />
+			<ResetButton />
 			<ButtonItem element={"7"} />
 			<ButtonItem element={"8"} />
 			<ButtonItem element={"9"} />
@@ -26,7 +28,7 @@ export const ButtonLayout: React.FC<Props> = (props) => {
 			<ButtonItem element={"-"} />
 			<ButtonItem element={"0"} />
 			<ButtonItem element={"."} />
-			<ButtonItem element={"="} />
+			<EqualButton />
 			<ButtonItem element={"+"} />
 		</div>
 	)
