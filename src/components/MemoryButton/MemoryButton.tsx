@@ -12,6 +12,8 @@ export const MemoryButton: React.FC<Props> = () => {
 		result,
 	} = useCalculatorContext()
 
+	const isMemory = memory !== ""
+
 	const handleMemory = () => {
 		if (memory === "")
 		{
@@ -27,6 +29,9 @@ export const MemoryButton: React.FC<Props> = () => {
 		<>
 			<Button
 				onClick={() => handleMemory()}
+				shape={isMemory ? SHAPE.pill : SHAPE.default}
+				kind={isMemory ? KIND.tertiary : KIND.primary}
+				$style={isMemory ? {color: "red", fontWeight: "bold", backgroundColor: "white"} : {}}
 			>
 				{memory === "" ? "M" : memory}
 			</Button>
