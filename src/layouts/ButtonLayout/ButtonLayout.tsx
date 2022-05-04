@@ -6,19 +6,29 @@ import {MemoryButton} from "../../components/MemoryButton/MemoryButton";
 import {EqualButton} from "../../components/EqualButton/EqualButton";
 import {ScientificButton} from "../../components/ScientificButton/ScientificButton";
 
-interface Props {}
+interface Props {
+	type: string
+}
 
-export const ButtonLayout: React.FC<Props> = (props) => {
+export const ButtonLayout: React.FC<Props> = ({type}: Props) => {
+	const isScientific = type === "1"
+
 	return (
 		<div className={"button-layout"}>
 			<ButtonItem element={"("} />
 			<ButtonItem element={")"} />
 			<MemoryButton />
 			<ResetButton />
-			<ScientificButton element={"cos"} />
-			<ScientificButton element={"sin"} />
-			<ScientificButton element={"tan"} />
-			<ScientificButton element={"√"} />
+
+			{isScientific ?
+				(<>
+					<ScientificButton element={"cos"} />
+					<ScientificButton element={"sin"} />
+					<ScientificButton element={"tan"} />
+					<ScientificButton element={"√"} />
+				</>) : null
+			}
+
 			<ButtonItem element={"7"} />
 			<ButtonItem element={"8"} />
 			<ButtonItem element={"9"} />
