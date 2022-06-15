@@ -1,0 +1,10 @@
+.historyItem {
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-top: 10px;
+    width: max-content;
+}
+
+.historyItem:hover {
+    text-decoration: underline;
+}

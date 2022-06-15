@@ -4,8 +4,10 @@ import {ScreenLayout} from "./layouts/ScreenLayout/ScreenLayout";
 import {ButtonLayout} from "./layouts/ButtonLayout/ButtonLayout";
 import {TipsModal} from "./components/TipsModal/TipsModal";
 import {Tabs, Tab, FILL}  from "baseui/tabs-motion";
+import {Calcul} from "./types/Calcul";
 
 import {MyCalculatorContext} from "./contexts/CalculatorContext";
+import {HistoryModal} from "./components/HistoryModal/HistoryModal";
 
 const App = () => {
 	const [memory, setMemory] = useState<string>("")
@@ -15,6 +17,8 @@ const App = () => {
 	const [activeKey, setActiveKey] = useState("0")
 	const [isTipsModalOpen, setIsTipsModalOpen] = useState(false)
 	const [tips, setTips] = useState('')
+	const [history, setHistory] = useState<Calcul[]>([])
+	const [isHistoryModalOpen, setIsHistoryModalOpen] = useState(false)
 
 	return (
 		<div className="App">
@@ -24,7 +28,9 @@ const App = () => {
 				readableCalcul, setReadableCalcul,
 				result, setResult,
 				isTipsModalOpen, setIsTipsModalOpen,
-				tips, setTips
+				isHistoryModalOpen, setIsHistoryModalOpen,
+				tips, setTips,
+				history, setHistory,
 			}}>
 				<div className={"tabs"}>
 					<Tabs
@@ -45,6 +51,7 @@ const App = () => {
 				<ButtonLayout type={activeKey}/>
 
 				<TipsModal />
+				<HistoryModal />
 
 			</MyCalculatorContext.Provider>
 		</div>

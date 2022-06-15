@@ -8,11 +8,10 @@ import {
 	ROLE
 } from "baseui/modal";
 
-interface Props {
-}
+interface Props {}
 
 export const TipsModal: React.FC<Props> = () => {
-	const {isTipsModalOpen, setIsTipsModalOpen, result, tips} = useCalculatorContext()
+	const {isTipsModalOpen, setIsTipsModalOpen, result, tips, setTips} = useCalculatorContext()
 
 	return (
 		<Modal
@@ -24,7 +23,7 @@ export const TipsModal: React.FC<Props> = () => {
 			size={SIZE.default}
 			role={ROLE.dialog}
 		>
-			<ModalHeader>Tips about the number {result}</ModalHeader>
+			<ModalHeader>Tips about the number {Math.round(Number(result))}</ModalHeader>
 			<ModalBody>
 				{tips}
 			</ModalBody>

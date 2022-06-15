@@ -4,17 +4,15 @@ import {Button} from "baseui/button";
 import {IoBulb} from "react-icons/io5";
 import {IoBulbOutline} from "react-icons/io5";
 
-interface Props {
-
-}
+interface Props {}
 
 export const TipsButton: React.FC<Props> = () => {
-	const {result, setIsOpen} = useCalculatorContext()
+	const {result, setIsTipsModalOpen} = useCalculatorContext()
 	return (
 		<>
 			<Button
 				disabled={!result}
-				onClick={() => setIsOpen(true)}
+				onClick={() => setIsTipsModalOpen(true)}
 			>
 				{
 					result
