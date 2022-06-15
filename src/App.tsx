@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import {ScreenLayout} from "./layouts/ScreenLayout/ScreenLayout";
 import {ButtonLayout} from "./layouts/ButtonLayout/ButtonLayout";
 import {TipsModal} from "./components/modals/TipsModal/TipsModal";
-import {Tabs, Tab, FILL}  from "baseui/tabs-motion";
 import {Calcul} from "./types/Calcul";
 
 import {MyCalculatorContext} from "./contexts/CalculatorContext";
@@ -11,6 +10,7 @@ import {MyVisibilityContext} from "./contexts/VisibilyContext";
 
 import {HistoryModal} from "./components/modals/HistoryModal/HistoryModal";
 import {SelectorTab} from "./components/tabs/SelectorTab/SelectorTab";
+import axios from "axios";
 
 const App = () => {
 	const [memory, setMemory] = useState<string>("")
@@ -25,6 +25,17 @@ const App = () => {
 	const [isTipsModalOpen, setIsTipsModalOpen] = useState(false)
 	const [isHistoryModalOpen, setIsHistoryModalOpen] = useState(false)
 	const [isPaletteModalOpen, setIsPaletteModalOpen] = useState(false)
+
+	useEffect(() => {
+		if (Math.round(Number(result)) > 0) {
+			axios.get(`http://numbersapi.com/${Math.round(Number(result))}`)
+				.then(res => {
+					setTips(res.data)
+					console.log(Math.round(Number(result)))
+					console.log(res.data)
+				})
+		}
+	}, [result])
 
 	return (
 		<div className="App">

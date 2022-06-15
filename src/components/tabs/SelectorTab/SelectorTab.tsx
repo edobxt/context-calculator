@@ -1,4 +1,5 @@
 import * as React from 'react';
+import "./SelectorTab.css";
 import {useVisibilityContext} from "../../../contexts/VisibilyContext";
 import {FILL, Tab, Tabs} from "baseui/tabs-motion";
 

@@ -1,49 +1,22 @@
 import * as React from 'react';
-import {useCalculatorContext} from "../../../contexts/CalculatorContext";
 import "./HistoryModal.css";
-import {
-	Modal,
-	ModalHeader,
-	ModalBody,
-	SIZE,
-	ROLE
-} from "baseui/modal";
-import axios from "axios";
+
+import {useCalculatorContext} from "../../../contexts/CalculatorContext";
 import {useVisibilityContext} from "../../../contexts/VisibilyContext";
 
-interface Props {
-}
+import {Modal, ModalHeader, ModalBody, SIZE, ROLE} from "baseui/modal";
+
+interface Props {}
 
 export const HistoryModal: React.FC<Props> = () => {
-	const {
-		history,
-		setCalcul,
-		setReadableCalcul,
-		setResult,
-		result,
-		setTips
-	} = useCalculatorContext()
-
+	const {history, setCalcul, setReadableCalcul, setResult,} = useCalculatorContext()
 	const {isHistoryModalOpen, setIsHistoryModalOpen} = useVisibilityContext()
-
-	const getTips = (number: number) => {
-		if (String(result) !== String(number)) {
-			console.log(result)
-			console.log(number)
-			axios.get(`http://numbersapi.com/${number}`)
-				.then(res => {
-					setTips(res.data)
-					console.log(res.data)
-				})
-		}
-	}
 
 	const handleHistoryItem = (calcul: string, readableCalcul: string, result: string) => {
 		setCalcul(calcul)
 		setReadableCalcul(readableCalcul)
 		setResult(result)
 		setIsHistoryModalOpen(false)
-		getTips(Math.round(Number(result)))
 	}
 
 	return (

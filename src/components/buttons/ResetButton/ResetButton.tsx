@@ -10,7 +10,7 @@ export const ResetButton: React.FC<Props> = () => {
 	const resetAll = () => {
 		setCalcul("")
 		setReadableCalcul("")
-		setResult("")
+		//setResult("")
 	}
 
 	return (
