@@ -13,8 +13,8 @@ export type GlobalContent = {
 	result: string
 	setResult:(r: string) => void
 
-	isOpen: boolean
-	setIsOpen:(b: boolean) => void
+	isTipsModalOpen: boolean
+	setIsTipsModalOpen:(b: boolean) => void
 
 	tips: string
 	setTips:(t: string) => void
@@ -29,8 +29,8 @@ export const MyCalculatorContext = createContext<GlobalContent>({
 	setReadableCalcul:() => {},
 	result: '',
 	setResult:() => {},
-	isOpen: false,
-	setIsOpen:() => {},
+	isTipsModalOpen: false,
+	setIsTipsModalOpen:() => {},
 	tips: '',
 	setTips:() => {},
 })

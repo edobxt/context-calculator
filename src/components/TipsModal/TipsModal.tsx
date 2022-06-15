@@ -12,13 +12,13 @@ interface Props {
 }
 
 export const TipsModal: React.FC<Props> = () => {
-	const {isOpen, setIsOpen, result, tips} = useCalculatorContext()
+	const {isTipsModalOpen, setIsTipsModalOpen, result, tips} = useCalculatorContext()
 
 	return (
 		<Modal
-			onClose={() => setIsOpen(false)}
+			onClose={() => setIsTipsModalOpen(false)}
 			closeable
-			isOpen={isOpen}
+			isOpen={isTipsModalOpen}
 			animate
 			autoFocus
 			size={SIZE.default}

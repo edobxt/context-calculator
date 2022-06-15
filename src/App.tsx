@@ -13,7 +13,7 @@ const App = () => {
 	const [readableCalcul, setReadableCalcul] = useState<string>("")
 	const [result, setResult] = useState<string>("")
 	const [activeKey, setActiveKey] = useState("0")
-	const [isOpen, setIsOpen] = useState(false)
+	const [isTipsModalOpen, setIsTipsModalOpen] = useState(false)
 	const [tips, setTips] = useState('')
 
 	return (
@@ -23,7 +23,7 @@ const App = () => {
 				calcul, setCalcul,
 				readableCalcul, setReadableCalcul,
 				result, setResult,
-				isOpen, setIsOpen,
+				isTipsModalOpen, setIsTipsModalOpen,
 				tips, setTips
 			}}>
 				<div className={"tabs"}>
