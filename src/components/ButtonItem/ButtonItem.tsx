@@ -16,7 +16,7 @@ export const ButtonItem: React.FC<Props> = ({element}: Props) => {
 
 	return (
 		<>
-			<Button onClick={() => addToCalcul(element)}>
+			<Button onClick={() => addToCalcul(element)} $style={{fontWeight: "bold"}}>
 				{element}
 			</Button>
 		</>

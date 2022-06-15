@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Button} from "baseui/button";
+import {Search} from "baseui/icon";
 import {useCalculatorContext} from "../../contexts/CalculatorContext";
 
 interface Props {}

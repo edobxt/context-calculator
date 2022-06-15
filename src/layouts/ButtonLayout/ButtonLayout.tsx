@@ -5,6 +5,10 @@ import {ResetButton} from "../../components/ResetButton/ResetButton"
 import {MemoryButton} from "../../components/MemoryButton/MemoryButton";
 import {EqualButton} from "../../components/EqualButton/EqualButton";
 import {ScientificButton} from "../../components/ScientificButton/ScientificButton";
+import {TipsButton} from "../../components/TipsButton/TipsButton";
+import {HistoryButton} from "../../components/HistoryButton/HistoryButton";
+import {PaletteButton} from "../../components/PaletteButton/PaletteButton";
+import {ThemeSwitchButton} from "../../components/ThemeSwitchButton/ThemeSwitchButton";
 
 interface Props {
 	type: string
@@ -15,6 +19,11 @@ export const ButtonLayout: React.FC<Props> = ({type}: Props) => {
 
 	return (
 		<div className={"button-layout"}>
+			<TipsButton />
+			<HistoryButton />
+			<PaletteButton />
+			<ThemeSwitchButton />
+
 			<ButtonItem element={"("} />
 			<ButtonItem element={")"} />
 			<MemoryButton />
