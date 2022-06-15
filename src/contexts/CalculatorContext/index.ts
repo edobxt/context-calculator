@@ -12,6 +12,12 @@ export type GlobalContent = {
 
 	result: string
 	setResult:(r: string) => void
+
+	isOpen: boolean
+	setIsOpen:(b: boolean) => void
+
+	tips: string
+	setTips:(t: string) => void
 }
 
 export const MyCalculatorContext = createContext<GlobalContent>({
@@ -23,6 +29,10 @@ export const MyCalculatorContext = createContext<GlobalContent>({
 	setReadableCalcul:() => {},
 	result: '',
 	setResult:() => {},
+	isOpen: false,
+	setIsOpen:() => {},
+	tips: '',
+	setTips:() => {},
 })
 
 export const useCalculatorContext = () => useContext(MyCalculatorContext)
