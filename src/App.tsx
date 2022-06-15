@@ -2,58 +2,57 @@ import React, {useState} from 'react';
 import './App.css';
 import {ScreenLayout} from "./layouts/ScreenLayout/ScreenLayout";
 import {ButtonLayout} from "./layouts/ButtonLayout/ButtonLayout";
-import {TipsModal} from "./components/TipsModal/TipsModal";
+import {TipsModal} from "./components/modals/TipsModal/TipsModal";
 import {Tabs, Tab, FILL}  from "baseui/tabs-motion";
 import {Calcul} from "./types/Calcul";
 
 import {MyCalculatorContext} from "./contexts/CalculatorContext";
-import {HistoryModal} from "./components/HistoryModal/HistoryModal";
+import {MyVisibilityContext} from "./contexts/VisibilyContext";
+
+import {HistoryModal} from "./components/modals/HistoryModal/HistoryModal";
+import {SelectorTab} from "./components/tabs/SelectorTab/SelectorTab";
 
 const App = () => {
 	const [memory, setMemory] = useState<string>("")
 	const [calcul, setCalcul] = useState<string>("")
 	const [readableCalcul, setReadableCalcul] = useState<string>("")
 	const [result, setResult] = useState<string>("")
-	const [activeKey, setActiveKey] = useState("0")
-	const [isTipsModalOpen, setIsTipsModalOpen] = useState(false)
+
 	const [tips, setTips] = useState('')
 	const [history, setHistory] = useState<Calcul[]>([])
+
+	const [activeKey, setActiveKey] = useState("0")
+	const [isTipsModalOpen, setIsTipsModalOpen] = useState(false)
 	const [isHistoryModalOpen, setIsHistoryModalOpen] = useState(false)
+	const [isPaletteModalOpen, setIsPaletteModalOpen] = useState(false)
 
 	return (
 		<div className="App">
-			<MyCalculatorContext.Provider value={{
-				memory, setMemory,
-				calcul, setCalcul,
-				readableCalcul, setReadableCalcul,
-				result, setResult,
+			<MyVisibilityContext.Provider value={{
+				isPaletteModalOpen, setIsPaletteModalOpen,
 				isTipsModalOpen, setIsTipsModalOpen,
 				isHistoryModalOpen, setIsHistoryModalOpen,
-				tips, setTips,
-				history, setHistory,
+				activeKey, setActiveKey
 			}}>
-				<div className={"tabs"}>
-					<Tabs
-						activeKey={activeKey}
-						onChange={({ activeKey }) => {
-							// @ts-ignore
-							setActiveKey(activeKey);
-						}}
-						activateOnFocus
-						fill={FILL.fixed}
-					>
-						<Tab title="Basic"></Tab>
-						<Tab title="Scientific"></Tab>
-					</Tabs>
-				</div>
+				<MyCalculatorContext.Provider value={{
+					memory, setMemory,
+					calcul, setCalcul,
+					readableCalcul, setReadableCalcul,
+					result, setResult,
+					tips, setTips,
+					history, setHistory,
+				}}>
 
-				<ScreenLayout />
-				<ButtonLayout type={activeKey}/>
+					<SelectorTab />
 
-				<TipsModal />
-				<HistoryModal />
+					<ScreenLayout />
+					<ButtonLayout type={activeKey}/>
 
-			</MyCalculatorContext.Provider>
+					<TipsModal />
+					<HistoryModal />
+
+				</MyCalculatorContext.Provider>
+			</MyVisibilityContext.Provider>
 		</div>
 	);
 }

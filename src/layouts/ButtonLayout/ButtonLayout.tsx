@@ -1,21 +1,24 @@
 import * as React from 'react';
 import "./ButtonLayout.css";
-import {ButtonItem} from "../../components/ButtonItem/ButtonItem";
-import {ResetButton} from "../../components/ResetButton/ResetButton"
-import {MemoryButton} from "../../components/MemoryButton/MemoryButton";
-import {EqualButton} from "../../components/EqualButton/EqualButton";
-import {ScientificButton} from "../../components/ScientificButton/ScientificButton";
-import {TipsButton} from "../../components/TipsButton/TipsButton";
-import {HistoryButton} from "../../components/HistoryButton/HistoryButton";
-import {PaletteButton} from "../../components/PaletteButton/PaletteButton";
-import {ThemeSwitchButton} from "../../components/ThemeSwitchButton/ThemeSwitchButton";
+
+import {ButtonItem} from "../../components/buttons/ButtonItem/ButtonItem";
+import {ResetButton} from "../../components/buttons/ResetButton/ResetButton"
+import {MemoryButton} from "../../components/buttons/MemoryButton/MemoryButton";
+import {EqualButton} from "../../components/buttons/EqualButton/EqualButton";
+import {ScientificButton} from "../../components/buttons/ScientificButton/ScientificButton";
+import {TipsButton} from "../../components/buttons/specials-buttons/TipsButton/TipsButton";
+import {HistoryButton} from "../../components/buttons/specials-buttons/HistoryButton/HistoryButton";
+import {PaletteButton} from "../../components/buttons/specials-buttons/PaletteButton/PaletteButton";
+import {ThemeSwitchButton} from "../../components/buttons/specials-buttons/ThemeSwitchButton/ThemeSwitchButton";
+import {useVisibilityContext} from "../../contexts/VisibilyContext";
 
 interface Props {
 	type: string
 }
 
 export const ButtonLayout: React.FC<Props> = ({type}: Props) => {
-	const isScientific = type === "1"
+	const {activeKey} = useVisibilityContext();
+	const isScientific = activeKey === "1"
 
 	return (
 		<div className={"button-layout"}>

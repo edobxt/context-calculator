@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './ResultScreen.css';
-import {useCalculatorContext} from "../../contexts/CalculatorContext";
+import {useCalculatorContext} from "../../../contexts/CalculatorContext";
 
 interface Props {}
 

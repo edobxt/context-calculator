@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useCalculatorContext} from "../../contexts/CalculatorContext";
+import {useCalculatorContext} from "../../../contexts/CalculatorContext";
 import "./HistoryModal.css";
 import {
 	Modal,
@@ -9,13 +9,13 @@ import {
 	ROLE
 } from "baseui/modal";
 import axios from "axios";
+import {useVisibilityContext} from "../../../contexts/VisibilyContext";
 
 interface Props {
 }
 
 export const HistoryModal: React.FC<Props> = () => {
-	const {isHistoryModalOpen,
-		setIsHistoryModalOpen,
+	const {
 		history,
 		setCalcul,
 		setReadableCalcul,
@@ -23,6 +23,8 @@ export const HistoryModal: React.FC<Props> = () => {
 		result,
 		setTips
 	} = useCalculatorContext()
+
+	const {isHistoryModalOpen, setIsHistoryModalOpen} = useVisibilityContext()
 
 	const getTips = (number: number) => {
 		if (String(result) !== String(number)) {

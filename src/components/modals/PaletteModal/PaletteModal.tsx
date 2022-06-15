@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useCalculatorContext} from "../../contexts/CalculatorContext";
+import {useCalculatorContext} from "../../../contexts/CalculatorContext";
 import {
 	Modal,
 	ModalHeader,
@@ -7,11 +7,13 @@ import {
 	SIZE,
 	ROLE
 } from "baseui/modal";
+import {useVisibilityContext} from "../../../contexts/VisibilyContext";
 
 interface Props {}
 
-export const TipsModal: React.FC<Props> = () => {
-	const {isTipsModalOpen, setIsTipsModalOpen, result, tips, setTips} = useCalculatorContext()
+export const PaelleteModal: React.FC<Props> = () => {
+	const {result, tips, setTips} = useCalculatorContext()
+	const {isTipsModalOpen, setIsTipsModalOpen} = useVisibilityContext()
 
 	return (
 		<Modal
