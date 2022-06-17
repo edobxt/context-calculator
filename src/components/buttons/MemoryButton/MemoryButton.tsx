@@ -35,7 +35,11 @@ export const MemoryButton: React.FC<Props> = () => {
 				kind={isMemory ? KIND.tertiary : KIND.primary}
 				$style={isMemory
 					? {color: "red", fontWeight: "bold", backgroundColor: "white"}
-					: {backgroundColor: theme.secondaryColor, fontWeight: "bold"}
+					: (
+						theme.type === "light"
+							? {fontWeight: "bold", backgroundColor: theme.secondaryColor, fontSize: "1.5em"}
+							: {fontWeight: "bold", backgroundColor: theme.secondaryColor, color: theme.mainColor, fontSize: "1.5em"}
+					)
 				}
 			>
 				{memory === "" ? "M" : memory}

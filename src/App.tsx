@@ -31,7 +31,12 @@ const App = () => {
 	const [isHistoryModalOpen, setIsHistoryModalOpen] = useState(false)
 	const [isPaletteModalOpen, setIsPaletteModalOpen] = useState(false)
 
-	const [theme, setTheme] = useState<Theme>({name: 'black/white', mainColor: '#FEFEFE', secondaryColor: '#000'})
+	const [theme, setTheme] = useState<Theme>({
+		name: 'black/white',
+		mainColor: '#FEFEFE',
+		secondaryColor: '#000',
+		type: 'light'
+	})
 
 	useEffect(() => {
 		if (Math.round(Number(result)) > 0) {

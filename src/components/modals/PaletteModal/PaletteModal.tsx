@@ -31,7 +31,8 @@ export const PaletteModal: React.FC<Props> = () => {
 									{
 										name: palette.name,
 										mainColor: palette.mainColor,
-										secondaryColor: palette.secondaryColor
+										secondaryColor: palette.secondaryColor,
+										type: palette.type
 									})}
 							>
 								<PaletteItem

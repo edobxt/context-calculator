@@ -14,7 +14,11 @@ export const PaletteButton: React.FC<Props> = () => {
 		<>
 			<Button
 				onClick={() => setIsPaletteModalOpen(true)}
-				$style={{backgroundColor: theme.secondaryColor}}
+				$style={
+					theme.type === "light"
+						? {fontWeight: "bold", backgroundColor: theme.secondaryColor, fontSize: "1.2em"}
+						: {fontWeight: "bold", backgroundColor: theme.secondaryColor, color: theme.mainColor, fontSize: "1.2em"}
+				}
 			>
 				<IoColorPalette size={"1.5em"}/>
 			</Button>

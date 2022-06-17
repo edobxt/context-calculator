@@ -16,12 +16,12 @@ export const TipsModal: React.FC<Props> = () => {
 			isOpen={isTipsModalOpen}
 			animate
 			autoFocus
-			size={SIZE.default}
+			size={SIZE.auto}
 			role={ROLE.dialog}
 		>
 			<ModalHeader>Tips about the number {Math.round(Number(result))}</ModalHeader>
 			<ModalBody>
-				{tips}
+					{tips}
 			</ModalBody>
 		</Modal>
 	)

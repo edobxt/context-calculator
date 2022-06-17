@@ -16,7 +16,11 @@ export const HistoryButton: React.FC<Props> = () => {
 		<>
 			<Button
 				onClick={() => setIsHistoryModalOpen(true)}
-				$style={{backgroundColor: theme.secondaryColor}}
+				$style={
+					theme.type === "light"
+						? {fontWeight: "bold", backgroundColor: theme.secondaryColor, fontSize: "1.2em"}
+						: {fontWeight: "bold", backgroundColor: theme.secondaryColor, color: theme.mainColor, fontSize: "1.2em"}
+				}
 			>
 				<IoTime size={"1.5em"}/>
 			</Button>

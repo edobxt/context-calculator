@@ -24,7 +24,12 @@ export const ScientificButton: React.FC<Props> = ({element}: Props) => {
 
 	return (
 		<>
-			<Button onClick={() => addToCalcul(element)} $style={{backgroundColor: theme.secondaryColor}}>
+			<Button
+				onClick={() => addToCalcul(element)}
+				$style={theme.type === "light"
+					? {fontWeight: "bold", backgroundColor: theme.secondaryColor, fontSize: "1.5em"}
+					: {fontWeight: "bold", backgroundColor: theme.secondaryColor, color: theme.mainColor, fontSize: "1.5em"}}
+			>
 				{element}
 			</Button>
 		</>
