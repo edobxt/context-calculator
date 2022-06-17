@@ -2,11 +2,13 @@ import * as React from 'react';
 import axios from "axios";
 import {Button} from "baseui/button";
 import {useCalculatorContext} from "../../../contexts/CalculatorContext";
+import {useThemeContext} from "../../../contexts/ThemeContext";
 
 interface Props {}
 
 export const EqualButton: React.FC<Props> = () => {
 	const {setResult, calcul, readableCalcul, history, setHistory} = useCalculatorContext()
+	const {theme} = useThemeContext()
 
 	const doTheMath: any = (c: string) => {
 		return eval("(" + c + ")");
@@ -26,7 +28,8 @@ export const EqualButton: React.FC<Props> = () => {
 
 	return (
 		<>
-			<Button onClick={() => handleEqualButton()}>
+			<Button onClick={() => handleEqualButton()}
+					$style={{backgroundColor: theme.secondaryColor, fontWeight: "bold"}}>
 				=
 			</Button>
 		</>

@@ -11,6 +11,7 @@ import {HistoryButton} from "../../components/buttons/specials-buttons/HistoryBu
 import {PaletteButton} from "../../components/buttons/specials-buttons/PaletteButton/PaletteButton";
 import {ThemeSwitchButton} from "../../components/buttons/specials-buttons/ThemeSwitchButton/ThemeSwitchButton";
 import {useVisibilityContext} from "../../contexts/VisibilyContext";
+import {useThemeContext} from "../../contexts/ThemeContext";
 
 interface Props {
 	type: string
@@ -18,10 +19,12 @@ interface Props {
 
 export const ButtonLayout: React.FC<Props> = ({type}: Props) => {
 	const {activeKey} = useVisibilityContext();
+	const {theme} = useThemeContext()
+
 	const isScientific = activeKey === "1"
 
 	return (
-		<div className={"button-layout"}>
+		<div className={"button-layout"} style={{backgroundColor: theme.secondaryColor}}>
 			<TipsButton />
 			<HistoryButton />
 			<PaletteButton />

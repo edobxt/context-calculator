@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Button, KIND, SHAPE} from "baseui/button";
 import {useCalculatorContext} from "../../../contexts/CalculatorContext";
+import {useThemeContext} from "../../../contexts/ThemeContext";
 
 interface Props {}
 
@@ -11,6 +12,7 @@ export const MemoryButton: React.FC<Props> = () => {
 		calcul, setCalcul,
 		result,
 	} = useCalculatorContext()
+	const {theme} = useThemeContext()
 
 	const isMemory = memory !== ""
 
@@ -31,7 +33,10 @@ export const MemoryButton: React.FC<Props> = () => {
 				onClick={() => handleMemory()}
 				shape={isMemory ? SHAPE.pill : SHAPE.default}
 				kind={isMemory ? KIND.tertiary : KIND.primary}
-				$style={isMemory ? {color: "red", fontWeight: "bold", backgroundColor: "white"} : {}}
+				$style={isMemory
+					? {color: "red", fontWeight: "bold", backgroundColor: "white"}
+					: {backgroundColor: theme.secondaryColor, fontWeight: "bold"}
+				}
 			>
 				{memory === "" ? "M" : memory}
 			</Button>

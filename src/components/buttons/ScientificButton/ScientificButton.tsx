@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Button} from "baseui/button";
 import {useCalculatorContext} from "../../../contexts/CalculatorContext";
+import {useThemeContext} from "../../../contexts/ThemeContext";
 
 interface Props {
 	element: string
@@ -8,6 +9,7 @@ interface Props {
 
 export const ScientificButton: React.FC<Props> = ({element}: Props) => {
 	const {readableCalcul, setReadableCalcul, calcul, setCalcul} = useCalculatorContext()
+	const {theme} = useThemeContext()
 
 	const addToCalcul = (element: string) => {
 		if (element == "√") {
@@ -22,7 +24,7 @@ export const ScientificButton: React.FC<Props> = ({element}: Props) => {
 
 	return (
 		<>
-			<Button onClick={() => addToCalcul(element)}>
+			<Button onClick={() => addToCalcul(element)} $style={{backgroundColor: theme.secondaryColor}}>
 				{element}
 			</Button>
 		</>

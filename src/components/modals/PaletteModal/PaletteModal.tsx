@@ -1,33 +1,51 @@
 import * as React from 'react';
-import {useCalculatorContext} from "../../../contexts/CalculatorContext";
-import {
-	Modal,
-	ModalHeader,
-	ModalBody,
-	SIZE,
-	ROLE
-} from "baseui/modal";
 import {useVisibilityContext} from "../../../contexts/VisibilyContext";
+import {Modal, ModalHeader, ModalBody, SIZE, ROLE} from "baseui/modal";
+import {PaletteItem} from "../../selectable/PaletteItem/PaletteItem";
+import {palettes} from "../../../config/palettes";
+import {useThemeContext} from "../../../contexts/ThemeContext";
 
 interface Props {}
 
-export const PaelleteModal: React.FC<Props> = () => {
-	const {result, tips, setTips} = useCalculatorContext()
-	const {isTipsModalOpen, setIsTipsModalOpen} = useVisibilityContext()
+export const PaletteModal: React.FC<Props> = () => {
+	const {isPaletteModalOpen, setIsPaletteModalOpen} = useVisibilityContext()
+	const {theme, setTheme} = useThemeContext()
 
 	return (
 		<Modal
-			onClose={() => setIsTipsModalOpen(false)}
+			onClose={() => setIsPaletteModalOpen(false)}
 			closeable
-			isOpen={isTipsModalOpen}
+			isOpen={isPaletteModalOpen}
 			animate
 			autoFocus
 			size={SIZE.default}
 			role={ROLE.dialog}
 		>
-			<ModalHeader>Tips about the number {Math.round(Number(result))}</ModalHeader>
-			<ModalBody>
-				{tips}
+			<ModalHeader>Change the color palette</ModalHeader>
+			<ModalBody $style={{display: "flex"}}>
+				{
+					palettes.map((palette, index) => {
+						return (
+							<div
+								onClick={() => setTheme(
+									{
+										name: palette.name,
+										mainColor: palette.mainColor,
+										secondaryColor: palette.secondaryColor
+									})}
+							>
+								<PaletteItem
+									selected={theme.name === palette.name}
+									name={palette.name}
+									mainColor={palette.mainColor}
+									secondaryColor={palette.secondaryColor}
+									key={index}
+								/>
+							</div>
+
+						)
+					})
+				}
 			</ModalBody>
 		</Modal>
 	)
