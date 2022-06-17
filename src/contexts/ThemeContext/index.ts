@@ -4,6 +4,7 @@ export type Theme = {
 	name: string
 	mainColor: string
 	secondaryColor: string
+	tertiaryColor: string
 	type: string
 }
 
@@ -13,7 +14,7 @@ export type ThemeContent = {
 }
 
 export const MyThemeContext = createContext<ThemeContent>( {
-	theme: {name: '', mainColor: '', secondaryColor: '', type: ''},
+	theme: {name: '', mainColor: '', secondaryColor: '', tertiaryColor: '',type: ''},
 	setTheme: () => {}
 })
 

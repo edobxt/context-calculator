@@ -35,6 +35,7 @@ const App = () => {
 		name: 'black/white',
 		mainColor: '#FEFEFE',
 		secondaryColor: '#000',
+		tertiaryColor: '#d9556d',
 		type: 'light'
 	})
 

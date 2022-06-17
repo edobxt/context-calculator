@@ -18,7 +18,7 @@ export const TipsButton: React.FC<Props> = () => {
 			<Button
 				disabled={!result}
 				onClick={() => setIsTipsModalOpen(true)}
-				$style={{backgroundColor: theme.secondaryColor}}
+				$style={{backgroundColor: theme.secondaryColor, color: theme.mainColor}}
 			>
 				{
 					result

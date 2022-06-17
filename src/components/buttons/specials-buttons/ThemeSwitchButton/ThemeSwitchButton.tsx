@@ -11,8 +11,20 @@ interface Props {
 export const ThemeSwitchButton: React.FC<Props> = () => {
 	const {theme, setTheme} = useThemeContext()
 	const inversedTheme = theme.type === "light"
-		? {name: theme.name, mainColor: theme.secondaryColor, secondaryColor: theme.mainColor, type: "dark"}
-		: {name: theme.name, mainColor: theme.secondaryColor, secondaryColor: theme.mainColor, type: "light"}
+		? {
+			name: theme.name,
+			mainColor: theme.secondaryColor,
+			secondaryColor: theme.mainColor,
+			tertiaryColor: theme.tertiaryColor,
+			type: "dark"
+		}
+		: {
+			name: theme.name,
+			mainColor: theme.secondaryColor,
+			secondaryColor: theme.mainColor,
+			tertiaryColor: theme.tertiaryColor,
+			type: "light"
+		}
 
 	return (
 		<>

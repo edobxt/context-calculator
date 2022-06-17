@@ -31,8 +31,8 @@ export const EqualButton: React.FC<Props> = () => {
 			<Button onClick={() => handleEqualButton()}
 				$style={
 					theme.type === "light"
-						? {fontWeight: "bold", backgroundColor: theme.secondaryColor, fontSize: "1.5em"}
-						: {fontWeight: "bold", backgroundColor: theme.secondaryColor, color: theme.mainColor, fontSize: "1.5em"}
+						? {fontWeight: "bold", backgroundColor: theme.tertiaryColor, fontSize: "1.5em"}
+						: {fontWeight: "bold", backgroundColor: theme.tertiaryColor, color: theme.secondaryColor, fontSize: "1.5em"}
 				}
 			>
 				=
