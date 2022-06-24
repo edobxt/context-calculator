@@ -20,4 +20,25 @@ export const palettes = [
     tertiaryColor: "#91523c",
     type: "light",
   },
+  {
+    name: "pastel yellow",
+    mainColor: "#F1F0C0",
+    secondaryColor: "#d4d15b",
+    tertiaryColor: "#B1BCE6",
+    type: "light",
+  },
+  {
+    name: "pastel green",
+    mainColor: "#92BA92",
+    secondaryColor: "#508c50",
+    tertiaryColor: "#F1DDBF",
+    type: "light",
+  },
+  {
+    name: "pastel orange",
+    mainColor: "#F6AE99",
+    secondaryColor: "#bf5d3f",
+    tertiaryColor: "#B97A95",
+    type: "light"
+  }
 ]
